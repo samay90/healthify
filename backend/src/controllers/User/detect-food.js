@@ -1,10 +1,11 @@
 const analyseImage = require('../../utils/gen-ai/image');
 const storage = require('../../utils/storage/files');
 const { encode } = require('../../utils/generators/encode');
+const lang = require("../../../lang/lang.json");
 
 const detectFood = async (req,res)=>{
     if (!!!req.files || !!!req.files.image) {
-        return res.status(400).json({error: "Image file is required"});
+        return res.status(400).json({ error: true, message: lang.IMAGE_REQUIRED });
     }
     const {image} = req.files;
     const filename = Date.now().toString();

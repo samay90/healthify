@@ -34,6 +34,9 @@
             "carbs": { "type": "number", "required": true, "min": 0 ,"max":500 },
             "fats": { "type": "number", "required": true, "min": 0 ,"max":500 },
             "warnings": {"type":"array", "required": true}
+        },
+        "delete_food":{
+            "food_log_id": { "type": "number", "required": true }
         }
     }
 }

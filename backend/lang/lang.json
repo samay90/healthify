@@ -9,5 +9,7 @@
     "USER_NOT_FOUND": "User not found",
     "EMPTY_BODY": "Request body cannot be empty",
     "INVALID_PIC_TYPE": "Invalid profile picture type",
-    "INVALID_PIC_SIZE": "Profile picture size exceeds limit of 1MB"
+    "INVALID_PIC_SIZE": "Profile picture size exceeds limit of 1MB",
+    "IMAGE_REQUIRED": "Image file is required",
+    "FOOD_LOG_NOT_FOUND": "Food log not found"
 }

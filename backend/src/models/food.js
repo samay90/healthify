@@ -25,3 +25,40 @@ export const updateDailyLogWithFood = (user_id, total_calories, total_protein, t
         });
     });
 }
+
+export const getFoodDetail = (food_log_id, user_id) => {
+    return new Promise((resolve, reject) => {
+        const q = `SELECT calories, protein, carbs, fats, created_at FROM food_logs WHERE food_log_id = ? AND user_id = ?`;
+        db.query(q, [food_log_id, user_id], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(result);
+        });
+    });
+}
+
+export const reduceDailyLogWithFood = (user_id, calories, protein, carbs, fats, intake_date) => {
+    return new Promise((resolve, reject) => {
+        const q = `UPDATE daily_intake SET total_calories = total_calories - ?, total_protein = total_protein - ?, total_carbs = total_carbs - ?, total_fats = total_fats - ? 
+        WHERE user_id = ? AND intake_date = ?`;
+        db.query(q, [calories, protein, carbs, fats, user_id, intake_date], (err, result) => {
+            if (err) {
+                return reject(err);
+            }``
+            resolve(result);
+        });
+    });
+}
+
+export const deleteFoodLog = (food_log_id, user_id) => {
+    return new Promise((resolve, reject) => {
+        const q = `DELETE FROM food_logs WHERE food_log_id = ? AND user_id = ?`;
+        db.query(q, [food_log_id, user_id], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(result);
+        });
+    });
+}
