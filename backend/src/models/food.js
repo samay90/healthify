@@ -1,9 +1,9 @@
 import db from "../utils/db/db.js";
 
-export const addFood = (food_name, ingredients, calories, protein, carbs, fats,warnings, food_url, user_id) => {
+export const addFood = (food_name, ingredients, calories, protein, carbs, fats,warnings, food_url, user_id,created_at) => {
     return new Promise((resolve, reject) => {
-        const q = `INSERT INTO food_logs (food_name, ingredients, calories, protein, carbs, fats, warnings, pic, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-        db.query(q, [food_name, JSON.stringify(ingredients), calories, protein, carbs, fats,JSON.stringify(warnings), food_url, user_id], (err, result) => {
+        const q = `INSERT INTO food_logs (food_name, ingredients, calories, protein, carbs, fats, warnings, pic, user_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        db.query(q, [food_name, JSON.stringify(ingredients), calories, protein, carbs, fats,JSON.stringify(warnings), food_url, user_id,created_at], (err, result) => {
             if (err) {
                 return reject(err);
             }

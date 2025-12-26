@@ -23,11 +23,10 @@ CREATE TABLE food_logs (
     fats DECIMAL(6,2),
     warnings JSON,
     pic TEXT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at VARCHAR(50) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 CREATE TABLE daily_intake (
-
     user_id INT NOT NULL,
     intake_date DATE NOT NULL,
     total_calories INT DEFAULT 0,

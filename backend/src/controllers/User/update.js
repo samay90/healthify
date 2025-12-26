@@ -2,6 +2,7 @@ const auth = require("../../models/auth");
 const lang = require("../../../lang/lang.json");
 const storage = require("../../utils/storage/files");
 const {encode} = require("../../utils/generators/encode");
+const sharp = require("sharp");
 
 const updateInfo = async (req, res,next) => {
     if (!!!req.body) {
@@ -34,12 +35,13 @@ const updateProfilePic = async (req, res) => {
             message: lang["INVALID_PIC_TYPE"]
         });
     }
-    if (profilePic.size > 1 * 1024 * 1024){
-        return res.status(400).json({
-            error:true,
-            message: lang["INVALID_PIC_SIZE"]
-        });
-    }
+    const new_img_buffer = await sharp(profilePic.data).resize(512, 512, {
+        fit: "cover",
+        position: "centre"
+    })
+    .png({ quality: 80 })
+    .toBuffer();  
+    profilePic.data = new_img_buffer;
     await storage.deleteFile(`usr/${encode(user.user_id)}/prf/`);
     const filename = Date.now().toString();
     const fileUrl = await storage.uploadFile(profilePic, `usr/${encode(user.user_id)}/prf/${filename}.png`);

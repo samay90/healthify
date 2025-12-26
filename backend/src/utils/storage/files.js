@@ -1,6 +1,7 @@
 const bucket = require("./firebase")
+const sharp = require("sharp");
 
-const uploadFile = async (file,filepath) =>{
+const uploadFile = async (file,filepath,) =>{
   const blob = bucket.file(filepath);    
   await new Promise((resolve, reject) => {
     const blobStream = blob.createWriteStream({
@@ -19,8 +20,11 @@ const uploadFile = async (file,filepath) =>{
 }
 
 const deleteFile = async (prefix) => {
+  
   try {
     const [files] = await bucket.getFiles({ prefix });    
+    console.log(files);
+    
     if (files.length === 0) {
       return { success: false, message: 'File not found' };
     }

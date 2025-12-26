@@ -36,7 +36,7 @@
             "warnings": {"type":"array", "required": true}
         },
         "delete_food":{
-            "food_log_id": { "type": "number", "required": true }
+            "food_log_id": { "type": "string", "required": true }
         }
     }
 }
