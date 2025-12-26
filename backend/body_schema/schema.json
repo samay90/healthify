@@ -1,0 +1,30 @@
+{
+    "auth":{
+        "signup":{
+            "email": { "type": "string", "required": true, "minLength": 5 }
+        },
+        "verify":{
+            "otp": { "type": "number", "required": true },
+            "token": { "type": "string", "required": true }
+        },
+        "signin":{
+            "email": { "type": "string", "required": true },
+            "password": { "type": "string", "required": true }
+        },
+        "forgot-password":{
+            "email": { "type": "string", "required": true }
+        },
+        "reset-password":{
+            "token": { "type": "string", "required": true },
+            "otp" : { "type": "number", "required": true },
+            "password": { "type": "string", "required": true }
+        }
+    },
+    "user":{
+        "update":{
+            "name": { "type": "string", "required": false ,"maxLength":100},
+            "delete_pic": { "type": "string", "required": false },
+            "daily_calorie_limit": { "type": "number", "required": false }
+        }
+    }
+}

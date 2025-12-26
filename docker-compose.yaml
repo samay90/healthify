@@ -1,0 +1,38 @@
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "5003:5003"
+    networks:
+      - healthify
+    depends_on:
+      - db
+      - redis
+      - photo_detect
+  db:
+    build:
+      context: ./backend/db_design
+      dockerfile: Dockerfile
+    networks:
+      - healthify
+    ports:
+      - "3309:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+    volumes:
+      - healthify:/var/lib/msql
+  redis:
+    image: redis/redis-stack:latest
+    ports:
+      - "6379:6379"
+      - "3001:8001"
+    networks:
+      - healthify
+
+networks:
+  healthify:
+    driver : bridge
+volumes:
+  healthify:

@@ -1,0 +1,13 @@
+{
+    "USER_ALREADY_EXISTS": "User already exists with same email",
+    "INVALID_EMAIL": "Invalid email",
+    "INVALID_PASSWORD": "Invalid password",
+    "UNAVAILABLE": "Our service is unavailable at the moment",
+    "OTP_EXPIRED": "Otp expired",
+    "INVALID_OTP": "Invalid otp",
+    "UNAUTHORIZED": "Unauthorized access",
+    "USER_NOT_FOUND": "User not found",
+    "EMPTY_BODY": "Request body cannot be empty",
+    "INVALID_PIC_TYPE": "Invalid profile picture type",
+    "INVALID_PIC_SIZE": "Profile picture size exceeds limit of 1MB"
+}
