@@ -9,4 +9,6 @@ router.post("/update",authorize,validate(schema["user"]["update"]),updateInfo,up
 
 router.post("/detect-food",authorize,require("./detect-food"));
 
+router.post("/add-food",authorize,validate(schema["user"]["add_food"]),require("./add-food.js"));
+
 module.exports = router;

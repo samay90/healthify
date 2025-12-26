@@ -14,12 +14,12 @@ Otherwise return exactly this format:
 
 {
   "error": false,
-  "dish": string,
+  "food_name": string,
   "ingredients": string[],
-  "calories": number,
-  "protein_g": number,
-  "carbs_g": number,
-  "fat_g": number,
+  "calories": number, (unit in kcal)
+  "protein": number, (unit in grams)
+  "carbs": number, (unit in grams)
+  "fats": number, (unit in grams)
   "warnings": {warning_text:string,warning_type:string from ("WARNING","INFO")}[]
 }
 `;

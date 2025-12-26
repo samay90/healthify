@@ -1,6 +1,6 @@
 {
     "error": false,
-    "dish": "Pizza",
+    "food_name": "Pizza",
     "ingredients": [
         "Pizza Dough",
         "Tomato Sauce",
@@ -10,9 +10,9 @@
         "Bell Peppers"
     ],
     "calories": 350,
-    "protein_g": 18,
-    "carbs_g": 45,
-    "fat_g": 15,
+    "protein": 18,
+    "carbs": 45,
+    "fats": 15,
     "warnings": [
         {
             "warning_text": "High in sodium due to pepperoni and processed cheese.",

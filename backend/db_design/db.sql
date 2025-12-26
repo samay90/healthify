@@ -21,21 +21,13 @@ CREATE TABLE food_logs (
     protein DECIMAL(6,2),
     carbs DECIMAL(6,2),
     fats DECIMAL(6,2),
-
+    warnings JSON,
     pic TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
-CREATE TABLE food_warnings (
-    warning_id INT AUTO_INCREMENT PRIMARY KEY,
-    food_log_id INT NOT NULL,
-    warning_text VARCHAR(50) NOT NULL,
-    warning_level VARCHAR(20) CHECK (warning_level IN ('INFO', 'WARNING')),
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (food_log_id) REFERENCES food_logs(food_log_id) ON DELETE CASCADE
-);
 CREATE TABLE daily_intake (
-    intake_id INT AUTO_INCREMENT PRIMARY KEY,
+
     user_id INT NOT NULL,
     intake_date DATE NOT NULL,
     total_calories INT DEFAULT 0,
