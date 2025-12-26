@@ -24,7 +24,8 @@ Otherwise return exactly this format:
 }
 `;
 const analyseImage = async (url) => {
-  try{      
+  try{  
+      return require("./demo.json");    
       const apiResponse = await model.chat.completions.create({
       model: 'google/gemma-3-27b-it:free',
       messages: [
@@ -45,7 +46,7 @@ const analyseImage = async (url) => {
         },
       ],
       stream: false,
-      temperature: 0.5
+      temperature: 1
     });
     return toJSON(apiResponse.choices[0].message.content)
   }catch (error) {

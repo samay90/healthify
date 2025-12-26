@@ -1,0 +1,30 @@
+{
+    "error": false,
+    "dish": "Pizza",
+    "ingredients": [
+        "Pizza Dough",
+        "Tomato Sauce",
+        "Mozzarella Cheese",
+        "Pepperoni",
+        "Mushrooms",
+        "Bell Peppers"
+    ],
+    "calories": 350,
+    "protein_g": 18,
+    "carbs_g": 45,
+    "fat_g": 15,
+    "warnings": [
+        {
+            "warning_text": "High in sodium due to pepperoni and processed cheese.",
+            "warning_type": "WARNING"
+        },
+        {
+            "warning_text": "Contains saturated fat from cheese and pepperoni.",
+            "warning_type": "WARNING"
+        },
+        {
+            "warning_text": "Good source of calcium from cheese.",
+            "warning_type": "INFO"
+        }
+    ]
+}

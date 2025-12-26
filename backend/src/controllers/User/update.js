@@ -40,7 +40,9 @@ const updateProfilePic = async (req, res) => {
             message: lang["INVALID_PIC_SIZE"]
         });
     }
-    const fileUrl = await storage.uploadFile(profilePic, `usr/${encode(user.user_id)}/prf/_.png`);
+    await storage.deleteFile(`usr/${encode(user.user_id)}/prf/`);
+    const filename = Date.now().toString();
+    const fileUrl = await storage.uploadFile(profilePic, `usr/${encode(user.user_id)}/prf/${filename}.png`);
     const updatedUser = await auth.updateProfile(user.user_id, fileUrl);
     const userInfo = await auth.getUserById(user.user_id, user.email);
     req.user = userInfo;

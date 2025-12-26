@@ -17,7 +17,6 @@ CREATE TABLE food_logs (
     user_id INT NOT NULL,
     food_name VARCHAR(100) NOT NULL,
     ingredients JSON,
-    confidence_score INT NOT NULL,
     calories INT NOT NULL,
     protein DECIMAL(6,2),
     carbs DECIMAL(6,2),
