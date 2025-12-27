@@ -2,33 +2,23 @@ const lang = require('../../../lang/lang.json');
 const info = require('../../models/info');
 
 const get = async (req,res) =>{
-    const {date} = req.params;
-    const d = new Date(date);
-    if(isNaN(d.getTime())){
+    const {start_date,end_date} = req.params;
+    const sd = new Date(start_date);
+    const ed = new Date(end_date);
+    if(isNaN(sd.getTime() || isNaN(ed.getTime()))){
         return res.status(400).json({
             error:true,
             message: lang.INVALID_DATE
         });
     }
-    const db_date = d.toLocaleDateString('en-CA');
+    const db_start_date = sd.toLocaleDateString('en-CA');
+    const db_end_date = ed.toLocaleDateString('en-CA');
     const user = req.user;
-    const data = await info.getNutritionInfoByDate(user.user_id,db_date);
-    if (data.length === 0) {
-        return res.status(404).json({
-            error: false,
-            message: "",
-            data: {
-                total_calories: 0,
-                total_proteins: 0,
-                total_carbs: 0,
-                total_fats: 0,
-            }
-        });
-    }
+    const data = await info.getNutritionInfoByDate(user.user_id,db_start_date,db_end_date);
     return res.status(200).json({
         error: false,
         message: "",
-        data: data[0]
+        data: data
     });
 
 }

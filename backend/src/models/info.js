@@ -1,9 +1,9 @@
 import db from '../utils/db/db.js';
 
-export const getNutritionInfoByDate = async (user_id, date) => {
+export const getNutritionInfoByDate = async (user_id, start_date, end_date) => {
     return new Promise((resolve, reject) => {
-        const q = 'SELECT total_calories, total_protein, total_carbs, total_fats FROM daily_intake WHERE user_id = ? AND intake_date = ?';
-        db.query(q, [user_id, date], (err, rows) => {
+        const q = 'SELECT total_calories, total_protein, total_carbs, total_fats FROM daily_intake WHERE user_id = ? AND (intake_date BETWEEN ? AND ?)';
+        db.query(q, [user_id, start_date, end_date], (err, rows) => {
             if (err) {
                 return reject(err);
             }
@@ -34,4 +34,16 @@ export const getFoodDetails = async (user_id,food_log_id) => {
             resolve(rows);
         });
     })
+}
+
+export const getNutritionInsights = async (user_id,start_time,end_time) => {
+    return new Promise((resolve, reject) => {
+        const q = `SELECT warnings FROM food_logs WHERE user_id = ? AND (created_at BETWEEN ? AND ?) AND warnings IS NOT NULL`;
+        db.query(q, [user_id,start_time,end_time], (err, rows) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(rows);
+        });
+    });
 }

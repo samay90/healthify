@@ -68,12 +68,12 @@ export const updatePassword = (email,password) =>{
 }
 export const getUserById = (id,email) => {
   return new Promise((resolve, reject) => {
-    const q = `SELECT u.user_id, u.email, u.name,u.pic FROM users as u WHERE u.user_id = ? AND u.email = ?`;
+    const q = `SELECT u.user_id, u.email,u.daily_calorie_limit, u.name,u.pic FROM users as u WHERE u.user_id = ? AND u.email = ?`;
     db.execute(q, [id, email], (err, result) => {
       if (err) reject(err);
       else resolve(result);
     });
-  });
+  })
 };
 
 export const updateName = (id,name) =>{
