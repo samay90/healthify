@@ -14,7 +14,7 @@ export const getNutritionInfoByDate = async (user_id, start_date, end_date) => {
 
 export const getFoodItemsByDate = async (user_id, start_time,end_time) => {
     return new Promise((resolve, reject) => {
-        const q = 'SELECT food_log_id,food_name, created_at, pic FROM food_logs WHERE user_id = ? AND (created_at BETWEEN ? AND ?)';
+        const q = 'SELECT food_log_id,food_name, created_at, pic, calories, protein, carbs, fats FROM food_logs WHERE user_id = ? AND (created_at BETWEEN ? AND ?)';
         db.query(q, [user_id, start_time, end_time], (err, rows) => {
             if (err) {
                 return reject(err);
