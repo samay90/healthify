@@ -11,5 +11,6 @@
     "INVALID_PIC_TYPE": "Invalid profile picture type",
     "INVALID_PIC_SIZE": "Profile picture size exceeds limit of 1MB",
     "IMAGE_REQUIRED": "Image file is required",
-    "FOOD_LOG_NOT_FOUND": "Food log not found"
+    "FOOD_LOG_NOT_FOUND": "Food log not found",
+    "INVALID_DATE": "Invalid date format MM-DD-YYYY"
 }

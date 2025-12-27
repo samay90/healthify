@@ -38,7 +38,6 @@ module.exports = async (req, res, next) => {
     req.user = userRows[0];
     next();
   } catch (err) {
-    console.error("Authorize middleware error:", err);
     return res.status(401).json({ error: true, message: lang["UNAUTHORIZED"] });
   }
 };

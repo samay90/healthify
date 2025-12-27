@@ -13,4 +13,6 @@ router.post("/add-food",authorize,validate(schema["user"]["add_food"]),require("
 
 router.post("/delete-food",authorize,validate(schema["user"]["delete_food"]),require("./delete-food")); 
 
+router.get('/info',authorize,require('./user_info.js'));
+
 module.exports = router;
