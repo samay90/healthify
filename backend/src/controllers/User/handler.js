@@ -15,4 +15,6 @@ router.post("/delete-food",authorize,validate(schema["user"]["delete_food"]),req
 
 router.get('/info',authorize,require('./user_info.js'));
 
+router.delete("/delete-account",authorize,require("./delete-account.js"));
+
 module.exports = router;

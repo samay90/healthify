@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: red;
+}
+
+*{
+    --primary-color:52, 178, 119;
+    --primary-light-color:41, 163, 143;
+    --primary-dark-color:45, 134, 104;
+    --text-dark:18, 33, 28;
+    --text-primary:98, 132, 120;
+    --border-light:220, 229, 226;
+    --background-light:251, 251, 248;
+    --card-shadow:0 4px 6px -1px hsl(160 30% 10% / .08), 0 2px 4px -2px hsl(160 30% 10% / .05)
+}
+.page_in{
+    opacity: 0;
+    animation: page_in 0.3s ease forwards;
+    // transform: ;
+}
+@keyframes page_in{
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

@@ -1,0 +1,45 @@
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Google Sans', sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--primary-color);
+    .icon{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgb(var(--primary-color)) 0%, rgb(var(--primary-light-color)) 100%);
+        padding: .725rem;
+        box-shadow: 0px 0px 20px rgba(var(--primary-color),0.3);
+        border-radius: 0.725rem;
+        transform: scale(0.5);
+        animation: iconIn 0.3s ease 0s 1 forwards;
+    }
+    h2{
+        display: flex;
+        align-items: center;
+        margin-left: 5px;
+        span{
+            color: rgb(var(--text-dark));
+            opacity: 0;
+            font-weight: 700;
+            font-size: 1.6rem;
+            animation: fadeInUp 0.4s ease-out forwards;
+
+        }
+    }
+}
+@keyframes fadeInUp {
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes iconIn {
+    to{
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}

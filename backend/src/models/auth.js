@@ -120,3 +120,15 @@ export const updateProfile = (id, url) => {
     });
   });
 }
+
+export const deleteAccount = (user_id) =>{
+    return new Promise((resolve,reject)=>{
+        const q = `DELETE FROM users WHERE user_id=?`;
+        db.execute(q,[user_id],(err,result)=>{
+            if (err) reject(err);
+            else{
+                resolve(result);
+            }
+        })
+    })
+}

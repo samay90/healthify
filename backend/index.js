@@ -11,7 +11,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 app.use(expressFileUpload());
 
-app.use("/api", require("./src/routes/route.js"));
+const delay = (req,res,next) =>{
+    setTimeout(next,1000);
+}
+
+app.use("/api",delay, require("./src/routes/route.js"));
 
 app.listen(process.env.PORT,"192.168.0.102", () => {
     console.log(`Server is running on port ${process.env.PORT}`);

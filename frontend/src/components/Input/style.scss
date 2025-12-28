@@ -1,0 +1,66 @@
+.input_field{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    .input{
+        position: relative;
+        .visibility_icon{
+            position: absolute;
+            top: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            right: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            .icon{color: rgb(var(--text-primary));}
+        }
+    }
+    .info_area{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        .link{
+            color: rgb(var(--primary-color));
+            text-decoration: none;
+            font-size: 0.925rem;
+        }
+        .link:hover{
+            text-decoration: underline;
+        }
+    }
+    input{
+        padding:0.825rem 0.75rem;
+        font-size: 1rem;
+        border-radius: 0.75rem;
+        width: 100%;
+        border: 1px solid rgb(var(--border-light));
+        color: rgb(var(--text-dark));
+        outline: none;
+        position: sticky;
+    }
+    input::placeholder{
+        color: rgb(var(--text-primary));
+    }
+    label{
+        color: rgb(var(--text-dark));
+        font-weight: 500;
+        font-size: 0.925rem;
+    }
+    .input::before{
+        content: '';
+        position: absolute;
+        display: none;
+        top: -4px;
+        left: -4px;
+        height: calc( 100% + 4px );
+        width: calc( 100% + 4px );
+        // z-index: 0;
+        border-radius: 1rem;
+        border: 2px solid rgb(var(--primary-color));
+    }
+    .input:focus-within::before{
+        display: block;
+    }
+}

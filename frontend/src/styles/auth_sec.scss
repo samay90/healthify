@@ -1,0 +1,66 @@
+.auth_sec{
+    height: 100vh;
+    width: 100%;
+    background: rgb(var(--background-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+        width: 100%;
+        max-width: 28rem;
+        .card{
+            width: 100%;
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(var(--border-light),0.5);
+            gap: 20px;
+            .intro{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                .icon{
+                    height: 55px;
+                    width: 55px;
+                    background-color: rgba(var(--primary-color),0.1);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                }
+                h2{
+                    color: rgb(var(--text-dark));
+                }
+                p{
+                    color: rgb(var(--text-primary));
+                }
+            }
+            .inputs{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .refer-links{
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+                gap: 5px;
+                cursor: pointer;
+                justify-content: center;
+                font-size: 0.925rem;
+                color: rgb(var(--text-primary));
+            }
+            .refer-links:hover{
+                color: rgb(var(--text-dark));
+            }
+        }
+    }
+}

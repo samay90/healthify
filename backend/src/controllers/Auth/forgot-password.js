@@ -22,7 +22,7 @@ const forgotPassword = async (req,res) =>{
         })
     }
     const code = generateOTP();
-    const resetLink = process.env.CLIENT_URL+"/reset-password/"+crypto.AES.encrypt(email,process.env.SECRET_KEY).toString()+"/"+code;
+    const resetLink = process.env.CLIENT_URL+"/reset-password?token="+crypto.AES.encrypt(email,process.env.SECRET_KEY).toString()+"&code="+code;
     const mailStatus = require("../../utils/mails/reset-password.js")(email,userStatus[0].name,resetLink);
     if (!mailStatus){
         return res.status(400).json({

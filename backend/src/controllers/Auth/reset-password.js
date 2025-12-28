@@ -7,6 +7,7 @@ const bcrypt = require("bcryptjs");
 
 const resetPassword = async (req,res) =>{
     const {token,otp,password} = req.body;
+    console.log(token)
     const email = crypto.AES.decrypt(token,process.env.SECRET_KEY).toString(crypto.enc.Utf8);
     if (!checkEmail(email)){
         return res.status(400).json({
