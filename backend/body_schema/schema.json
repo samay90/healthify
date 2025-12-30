@@ -22,9 +22,12 @@
     },
     "user":{
         "update":{
-            "name": { "type": "string", "required": false ,"maxLength":100},
-            "delete_pic": { "type": "string", "required": false },
-            "daily_calorie_limit": { "type": "number", "required": false }
+            "name": { "type": "string", "required": true ,"maxLength":100},
+            "delete_pic": { "type": "string", "required": true },
+            "daily_calorie_limit": { "type": "number", "required": true ,"min": 0 ,"max":5000},
+            "daily_protein_limit": { "type": "number", "required": true ,"min": 0 ,"max":500},
+            "daily_carbs_limit": { "type": "number", "required": true ,"min": 0 ,"max":500},
+            "daily_fats_limit": { "type": "number", "required": true ,"min": 0 ,"max":500}
         },
         "add_food":{
             "food_name": { "type": "string", "required": true, "maxLength":100 },

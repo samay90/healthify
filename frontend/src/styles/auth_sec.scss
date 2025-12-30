@@ -59,6 +59,9 @@
                 color: rgb(var(--text-primary));
             }
             .refer-links:hover{
+                .lucide{
+                    stroke: rgb(var(--text-dark));
+                }
                 color: rgb(var(--text-dark));
             }
         }

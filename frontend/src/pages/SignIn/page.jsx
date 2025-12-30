@@ -18,7 +18,7 @@ const SignIn = () => {
     mutationFn: (data) => api.post('/auth/signin', data),
     onSuccess: (data) => {
       message.success(data.data.message);
-      navigate("/")
+      navigate("/dashboard")
     },
     onError: (error) => {
       message.error(error.response.data.message);

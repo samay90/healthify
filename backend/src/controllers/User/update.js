@@ -5,15 +5,9 @@ const {encode} = require("../../utils/generators/encode");
 const sharp = require("sharp");
 
 const updateInfo = async (req, res,next) => {
-    if (!!!req.body) {
-        return next();
-    }
-    let {name,delete_pic,daily_calorie_limit} = req.body;
+    const {name,delete_pic,daily_calorie_limit,daily_protein_limit,daily_carbs_limit,daily_fats_limit} = req.body;
     const user = req.user;
-    if (!!!name && !!!delete_pic) return next();
-    if (!!name) {const updatedUser = await auth.updateName(user.user_id,name);}
-    if (!!daily_calorie_limit) {const updatedUser = await auth.updateCalorieLimit(user.user_id,daily_calorie_limit);}
-    if (!!delete_pic) {const deletePic = await auth.deletePic(user.user_id);}
+    await auth.updateUserInfo(user.user_id,name,delete_pic,daily_calorie_limit,daily_protein_limit,daily_carbs_limit,daily_fats_limit);
     const userInfo = await auth.getUserById(user.user_id, user.email);
     req.user = userInfo[0];
     next();

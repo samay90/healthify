@@ -1,0 +1,32 @@
+.loading_main{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgb(var(--background-light));
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    transition: 0s ease;
+    gap: 2rem;
+    .spinner{
+        height: 30px;
+        background: transparent;
+        width: 30px;
+        border-radius: 50%;
+        border: 2px solid rgb(var(--primary-color));
+        border-top-color: transparent;
+        animation: rotate 0.5s linear infinite;
+    }
+}
+@keyframes rotate {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}

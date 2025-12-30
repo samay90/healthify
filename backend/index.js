@@ -8,7 +8,10 @@ const expressFileUpload = require("express-fileupload");
 require("dotenv").config(); 
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true
+}));
 app.use(expressFileUpload());
 
 const delay = (req,res,next) =>{

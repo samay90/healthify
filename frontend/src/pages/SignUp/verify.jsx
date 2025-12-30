@@ -18,7 +18,7 @@ const Verify = ({token,setToken}) =>{
         onSuccess: (data) => {
           message.success(data.data.message);
           setCode("");
-          navigate("/");
+          navigate("/dashboard");
         },
         onError: (error) => {
           message.error(error.response.data.message);

@@ -18,7 +18,7 @@ const NotFound = () =>{
                     <p>The page you are looking for is not found.</p>
                 </div>
                 
-                <div className="refer-links" onClick={() => navigate("/")}>
+                <div className="refer-links" onClick={() => navigate("/dashboard")}>
                     <ArrowLeft color="rgb(var(--text-primary))" size={18}></ArrowLeft> Navigate to home!
                 </div>
             </div>

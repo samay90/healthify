@@ -120,7 +120,17 @@ export const updateProfile = (id, url) => {
     });
   });
 }
-
+export const updateUserInfo = (id,name,delete_pic,daily_calorie_limit,daily_protein_limit,daily_carbs_limit,daily_fats_limit) => {
+  return new Promise((resolve, reject) => {
+    const q = `UPDATE users SET name = ?, pic = ?, daily_calorie_limit = ?, daily_protein_limit = ?, daily_carbs_limit = ?, daily_fats_limit = ? WHERE user_id = ?`;
+    db.execute(q, [name,delete_pic,daily_calorie_limit,daily_protein_limit,daily_carbs_limit,daily_fats_limit, id], (err, result) => {
+      if (err) reject(err);
+      else {
+        resolve(result);
+      }
+    });
+  });
+}
 export const deleteAccount = (user_id) =>{
     return new Promise((resolve,reject)=>{
         const q = `DELETE FROM users WHERE user_id=?`;
