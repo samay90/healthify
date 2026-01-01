@@ -8,7 +8,6 @@ import { userContext } from "../../store/User"
 const SideBar = () =>{
     const {pathname} = useLocation();
     const {data} = useContext(userContext);
-    console.log(data);
     
     const nav_tabs = [
     {
@@ -34,6 +33,17 @@ const SideBar = () =>{
 ]
     return (
         <div className="side_bar">
+            <div className="mobile_header">
+                <Logo full/>
+            </div>
+            <div className="mobile_nav">
+                {nav_tabs.map((tab,key)=>{
+                    return <Link key={key} className={`tab ${pathname==tab.path?" active":""}`} to={tab.path}>
+                        <span className="icon">{tab.icon}</span>
+                        <span className="name">{tab.name}</span>
+                    </Link>
+                })}
+            </div>
             <div className="nav">
                 <div className="logo_container">
                     <Logo full/>                

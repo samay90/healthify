@@ -1,0 +1,25 @@
+.circular_progress_bar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .progress_bar{
+        height: 100%;
+        position: absolute;
+        aspect-ratio: 1;
+        transform: rotate(-90deg);
+        circle{
+            fill: transparent;
+            stroke: rgb(var(--background-dark));
+            stroke-width: 10px;
+            stroke-linecap: round;
+            r: calc(50% - .75rem);
+            transition: .3s ease;
+        }
+        .progress{
+            stroke: transparent;
+            // stroke-dasharray:10px;
+        }
+    }
+}

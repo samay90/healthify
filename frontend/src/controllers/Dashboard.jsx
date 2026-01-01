@@ -15,9 +15,7 @@ const Dashboard = () =>{
         <SideBar/>
         <div className="dashboard">
             <Routes>
-                <Route path="/" element={
-                    <>Welcome build it</>
-                }></Route>
+                <Route path="/" element={<Home/>}></Route>
             </Routes>
         </div>
     </div>

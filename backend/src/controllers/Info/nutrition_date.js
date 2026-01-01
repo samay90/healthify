@@ -5,7 +5,8 @@ const get = async (req,res) =>{
     const {start_date,end_date} = req.params;
     const sd = new Date(start_date);
     const ed = new Date(end_date);
-    if(isNaN(sd.getTime() || isNaN(ed.getTime()))){
+
+    if (sd==="Invalid Date" || ed==="Invalid Date"){
         return res.status(400).json({
             error:true,
             message: lang.INVALID_DATE

@@ -2,4 +2,17 @@ import { Calendar, Home, User, UtensilsCrossed } from "lucide-react";
 
 export const API = "http://192.168.0.102:5892/api";
 
-
+export const greetings = [
+    {
+    name:"Good morning",
+    time_max:12
+    },
+    {
+    name:"Good afternoon",
+    time_max:17
+    },
+    {
+    name:"Good evening",
+    time_max:24
+    }
+]

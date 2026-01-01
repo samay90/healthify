@@ -8,6 +8,12 @@
     justify-content: space-between;
     border-right: 1px solid rgb(var(--border-light));
     align-items: center;
+    .mobile_nav {
+        display: none;
+    }
+    .mobile_header{
+        display: none;
+    }
     .nav{
         padding: 1.5rem 1rem;
         display: flex;
@@ -17,6 +23,9 @@
         .logo_container{
             zoom: 0.8;
             padding: 10px;
+        }
+        @media (max-width:1024px){
+            display: none;
         }
         .tabs{
             display: flex;
@@ -70,6 +79,9 @@
     .account{
         padding: 1.5rem 1rem;
         width: 100%;
+        @media (max-width:1024px){
+            display: none;
+        }
         .account_card{
             display: grid;
             grid-template-columns: 40px 1fr;
@@ -135,6 +147,98 @@
                         stroke: red;
                     }
                 }
+        }
+    }
+    @media (max-width:1024px) {
+        width: 0;
+        height: 0;
+        position: fixed;
+        z-index: 1000;
+        border: none;
+        .mobile_nav{
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 80px;
+            background: rgba(var(--background-light),0.8);
+            backdrop-filter: blur(10px);
+            width: 100vw;
+            border-bottom: 1px solid rgb(var(--background-dark));
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            border-top: 1px solid rgb(var(--background-dark));
+            .tab{
+                text-decoration: none;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 60px;
+                gap: 5px;
+                .name{
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                    color: rgb(var(--text-primary));
+                }
+                .icon{
+                    display: flex;
+                    justify-content: center;
+                    padding: 3px;
+                    width: 50px;
+                    border-radius: 100px;
+                    transition: .2s ease;
+                    .lucide{
+                        stroke: rgb(var(--text-primary));
+                        transform: scale(0.9);
+                    }
+                }
+                &:hover{
+                    .name{
+                        color: rgb(var(--text-dark));
+                    }
+                    .lucide{
+                        stroke: rgb(var(--text-dark));
+                    }
+                }
+                &.active{
+                    .icon{
+                        background-color: rgb(var(--primary-color));
+                        width: 60px;
+                        .lucide{
+                            stroke: white;
+                        }
+                    }
+                    .name{
+                        color: rgb(var(--primary-color));
+                        
+                    }
+                    .lucide{
+                        stroke: rgb(var(--primary-color));
+                    }
+                }
+            }
+        }
+        .mobile_header{
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 60px;
+            background: rgba(var(--background-light),0.8);
+            backdrop-filter: blur(10px);
+            width: 100vw;
+            border-bottom: 1px solid rgb(var(--background-dark));
+            z-index: 1000;
+            padding-left: 1rem;
+            .logo{
+                zoom: 0.8;
+                z-index: 1000;
+            }
         }
     }
 }

@@ -1,5 +1,5 @@
 import { UserProvider } from "./store/User";
-import { Routes ,Route, useNavigate } from "react-router-dom";
+import { Routes ,Route, useNavigate, Navigate, useLocation } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import SignIn from "./pages/SignIn/page";
 import SignUp from "./pages/SignUp/page";
@@ -13,16 +13,18 @@ import { useEffect } from "react";
   
 const App = () => {
   const navigate = useNavigate();
-  const {data,isError,isLoading} = useQuery({
+  const {pathname} = useLocation();
+
+  const {data,isError,error,isLoading} = useQuery({
     queryKey: [`user`],
     queryFn: () => api.get("/user/info").then((res) => res.data),
     retry:false
   })
-  useEffect(()=>{
-    if (isError){
-      navigate("/signin");
-    }
-  },[isError])
+  
+  if (isError && pathname.split("/")[1]==="dashboard") {
+  return <Navigate to="/signin" replace />;
+}
+  
   if (isLoading) {
     return <Loading/>
   }

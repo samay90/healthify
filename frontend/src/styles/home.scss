@@ -1,0 +1,100 @@
+.dashboard_page{
+    .greetings{
+        h1{
+            color: rgb(var(--text-dark));
+            font-size: 1.9rem;
+            @media (max-width:1025px){
+                font-size: 1.5rem;
+            }
+        }
+        p{
+            color: rgb(var(--text-primary));
+            font-weight: 400;
+            margin-top: 5px;
+        }
+    }
+    .insights{
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(2,1fr);
+        grid-gap: 1rem;
+        @media (max-width:850px){
+            grid-template-columns: repeat(2,1fr);
+            grid-template-rows: repeat(4,1fr);
+        }
+        .card_insight{
+            height: 8rem;
+            .title{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                span{
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    font-size: 0.85rem;
+                    color: rgb(var(--text-primary));
+                    font-weight: 500;
+                    p{
+                        color: rgb(var(--text-dark));
+                        font-size: 1rem;
+                    }
+                }
+            }
+            .visual{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                height: 100%;
+                position: relative;
+                h1{
+                    color: rgb(var(--text-dark));
+                }
+                p{
+                    font-size: 0.85rem;
+                    color: rgb(var(--text-primary));
+                }
+                .bar{
+                    height: 12rem !important;
+                }
+            }
+            .info{
+                margin-top: 10px;
+                .stats{
+                    display: flex;
+                    align-items: end;
+                    margin-bottom: 10px;
+                    gap: 5px;
+                    h2{
+                        color: rgb(var(--text-dark));
+                        margin-bottom: -2px;
+                    }
+                    p{
+                        font-size: 0.85rem;
+                        color: rgb(var(--text-primary));
+                    }
+                }
+                &.food{
+                    h2{
+                        color: rgb(var(--text-dark));
+                    }
+                    p{
+                        font-size: 0.85rem;
+                        color: rgb(var(--text-primary));
+                    }
+                }
+            }
+            &:first-child{
+                height: 100%;
+                grid-row: 1 / span 2;
+                padding: 1.5rem;
+                @media (max-width:600px){
+                    grid-column: 1 / span 2;
+                }
+            }
+        }
+    }
+
+}

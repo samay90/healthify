@@ -5,7 +5,7 @@ const { encode } = require('../../utils/generators/encode');
 const get = async (req,res) =>{
     const {date} = req.params;
     const d = new Date(date);
-    if(isNaN(d.getTime())){
+    if(d==="Invalid Date"){
         return res.status(400).json({
             error:true,
             message: lang.INVALID_DATE

@@ -1,7 +1,6 @@
 import "./style.scss"
 
 const Avatar = ({url,chr,size}) =>{
-    console.log(chr)
     return (
         <div className="avatar" style={{width:size+"px",height:size+"px"}}>
             {url?<img src={url} alt="" />:<span>{chr.replace(" ","").charAt(0).toUpperCase()}</span>}
