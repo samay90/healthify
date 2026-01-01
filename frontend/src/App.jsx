@@ -10,6 +10,8 @@ import api from "./api/client";
 import Loading from "./components/LoadingMain";
 import Dashboard from "./controllers/Dashboard";
 import { useEffect } from "react";
+import {ModalProvider} from "./store/modal";
+import Modal from "./components/Modal";
   
 const App = () => {
   const navigate = useNavigate();
@@ -31,6 +33,8 @@ const App = () => {
   return (
     <>
       <Toaster/>
+      <ModalProvider>
+      <Modal/>
       <UserProvider value={data}>
         <Routes>
           <Route path="/signin" element={<SignIn />}></Route>
@@ -40,6 +44,7 @@ const App = () => {
           <Route path="/dashboard/*" element={<Dashboard/>}></Route>
         </Routes>
       </UserProvider>
+      </ModalProvider>
     </>
   );
 };

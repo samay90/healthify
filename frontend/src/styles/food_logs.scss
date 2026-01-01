@@ -1,0 +1,17 @@
+.food_logs{
+    margin-top: 20px;
+    .header{
+        h2{
+            color: rgb(var(--text-dark));
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+    }
+    .logs{
+        margin-top: 10px;
+        width: 100%;
+        gap: 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    }
+}

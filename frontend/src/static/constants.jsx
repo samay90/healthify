@@ -16,3 +16,9 @@ export const greetings = [
     time_max:24
     }
 ]
+
+export const foodLimits = {
+    "calories":400,
+    "fats":17.5,
+    "carbs":40
+}

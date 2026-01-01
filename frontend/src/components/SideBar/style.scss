@@ -95,7 +95,6 @@
             }
             .info{
                 display: flex;
-                width: calc(100% - 6rem);
                 flex-direction: column;
                 grid-column-start: 2;
                 justify-content: center;
@@ -104,9 +103,14 @@
                     font-size: 1rem;
                     color: rgb(var(--text-dark));
                     font-weight: 400;
+                    max-width: calc(16rem - 2.5rem - 50px);
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
                 p{
                     font-size: 0.825rem;
+                    max-width: calc(16rem - 2.5rem - 50px);
                     color: rgb(var(--text-primary));
                     overflow: hidden;
                     white-space: nowrap;

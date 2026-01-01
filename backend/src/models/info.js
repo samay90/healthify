@@ -26,7 +26,7 @@ export const getFoodItemsByDate = async (user_id, start_time,end_time) => {
 
 export const getFoodDetails = async (user_id,food_log_id) => {
     return new Promise((resolve, reject) => {
-        const q = `SELECT food_name,pic,calories,protein,carbs,fats,warnings,ingredients FROM food_logs WHERE food_log_id = ? AND user_id = ?`;
+        const q = `SELECT food_name,pic,calories,protein,carbs,fats,warnings,ingredients,created_at FROM food_logs WHERE food_log_id = ? AND user_id = ?`;
         db.query(q, [food_log_id,user_id], (err, rows) => {
             if (err) {
                 return reject(err);

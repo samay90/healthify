@@ -61,8 +61,8 @@ const SideBar = () =>{
                 <div className="account_card">
                     <Avatar chr={data.name} url={data.pic} size={40}/>
                     <div className="info">
-                        <h3>John Doe</h3>
-                        <p>samaypatel9sdhfsjfkh0@gmail.com</p>
+                        <h3>{data.name}</h3>
+                        <p>{data.email}</p>
                     </div>
                 </div>
                 <div className="tab">

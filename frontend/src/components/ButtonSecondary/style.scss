@@ -1,0 +1,38 @@
+.btn_secondary{
+    height: 3rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 0.75rem;
+    color: rgb(var(--color));
+    cursor: pointer;
+    font-weight: 500;
+    border: 1px solid rgb(var(--color));
+    background:transparent;
+    // transition: all 0.1s ease;
+    .lucide{
+        stroke: rgb(var(--color));
+    }
+
+    &:disabled{
+        opacity: 0.6;
+        cursor: not-allowed;
+        pointer-events: none;
+        box-shadow: none;
+    }
+    .loader{
+        height: 1.2rem;
+        width: 1.2rem;
+        border-radius: 50%;
+        border: 2px solid rgb(var(--color));
+        border-top-color: transparent;
+        animation: spin 0.6s linear infinite;
+    }
+}
+@keyframes spin {
+    to{
+        transform: rotate(360deg);
+    }
+}
