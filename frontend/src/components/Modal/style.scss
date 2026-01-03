@@ -15,10 +15,10 @@
         height: auto;
         max-width: 30rem;
         position: fixed;
+        background: white;
         opacity: 0;
         transform: translate(-50%,-50%) scale(0);
         z-index: -1000;
-        background: rgb(var(--background-light));
         border-radius: 1rem;
         overflow: hidden;
         .close{

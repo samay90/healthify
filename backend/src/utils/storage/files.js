@@ -22,9 +22,7 @@ const uploadFile = async (file,filepath,) =>{
 const deleteFile = async (prefix) => {
   
   try {
-    const [files] = await bucket.getFiles({ prefix });    
-    console.log(files);
-    
+    const [files] = await bucket.getFiles({ prefix });        
     if (files.length === 0) {
       return { success: false, message: 'File not found' };
     }

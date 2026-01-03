@@ -16,32 +16,34 @@ const Modal = () =>{
         return () => window.removeEventListener("mousemove", handleMove);
     }, []);
     useEffect(()=>{
-        if (isOpen){
-            modalCover.current.style.display = "block";
-            modalCover.current.style.zIndex = "99999";
-            modalContent.current.style.display = "flex";
-            modalContent.current.style.zIndex = "99999";
-            modalContent.current.style.top = `${pos.y}px`;
-            modalContent.current.style.left = `${pos.x}px`;
-            modalContent.current.style.transition = "all 0.3s ease";
-            setTimeout(()=>{
-                modalCover.current.style.backgroundColor = "rgba(28, 26, 26, 0.5)";
-                modalContent.current.style.transform = "translate(-50%,-50%) scale(1)";
-                modalContent.current.style.top = "50%";
-                modalContent.current.style.left = "50%";
-                modalContent.current.style.opacity = "1";
-            },20)
-        }else{
-            modalCover.current.style.backgroundColor = "rgba(28, 26, 26, 0)";
-            modalContent.current.style.transform = "translate(-50%,-50%) scale(0)";
-            modalContent.current.style.opacity = "0";
-            setTimeout(()=>{
-                modalCover.current.style.display = "none";
-                modalCover.current.style.zIndex = "-1000";
-                modalContent.current.style.display = "none";
-                modalContent.current.style.zIndex = "-1000";
-                modalContent.current.style.transition = "none";
-            },320)
+        if (modalCover && modalCover.current && modalContent && modalContent.current){
+            if (isOpen){
+                modalCover.current.style.display = "block";
+                modalCover.current.style.zIndex = "99999";
+                modalContent.current.style.display = "flex";
+                modalContent.current.style.zIndex = "99999";
+                modalContent.current.style.top = `${pos.y}px`;
+                modalContent.current.style.left = `${pos.x}px`;
+                modalContent.current.style.transition = "all 0.3s ease";
+                setTimeout(()=>{
+                    modalCover.current.style.backgroundColor = "rgba(28, 26, 26, 0.5)";
+                    modalContent.current.style.transform = "translate(-50%,-50%) scale(1)";
+                    modalContent.current.style.top = "50%";
+                    modalContent.current.style.left = "50%";
+                    modalContent.current.style.opacity = "1";
+                },20)
+            }else{
+                modalCover.current.style.backgroundColor = "rgba(28, 26, 26, 0)";
+                modalContent.current.style.transform = "translate(-50%,-50%) scale(0)";
+                modalContent.current.style.opacity = "0";
+                setTimeout(()=>{
+                    modalCover.current.style.display = "none";
+                    modalCover.current.style.zIndex = "-1000";
+                    modalContent.current.style.display = "none";
+                    modalContent.current.style.zIndex = "-1000";
+                    modalContent.current.style.transition = "none";
+                },320)
+            }
         }
     },[isOpen])
     

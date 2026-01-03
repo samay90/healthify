@@ -15,7 +15,7 @@ const FoodCard = ({food}) =>{
     return <>
     <div className="food_card" onClick={() => openModal(<FoodModalContent closeModal={closeModal} food_id={food.food_log_id}/>)}>
         <Card>
-            <img src={food.image??NoImage} alt=""></img>
+            <img src={food.pic??NoImage} alt=""></img>
             <span className="time"><Clock size={10}/> {moment(parseInt(food.created_at)).fromNow()}</span>
             <div className="info">
                 <div className="name">

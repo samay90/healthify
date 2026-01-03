@@ -24,19 +24,19 @@
         "update":{
             "name": { "type": "string", "required": true ,"maxLength":100},
             "delete_pic": { "type": "string", "required": true },
-            "daily_calorie_limit": { "type": "number", "required": true ,"min": 0 ,"max":5000},
-            "daily_protein_limit": { "type": "number", "required": true ,"min": 0 ,"max":500},
-            "daily_carbs_limit": { "type": "number", "required": true ,"min": 0 ,"max":500},
-            "daily_fats_limit": { "type": "number", "required": true ,"min": 0 ,"max":500}
+            "daily_calorie_limit": { "type": "number", "required": true ,"min": 1 ,"max":5000},
+            "daily_protein_limit": { "type": "number", "required": true ,"min": 1 ,"max":500},
+            "daily_carbs_limit": { "type": "number", "required": true ,"min": 1 ,"max":500},
+            "daily_fats_limit": { "type": "number", "required": true ,"min": 1 ,"max":500}
         },
         "add_food":{
             "food_name": { "type": "string", "required": true, "maxLength":100 },
-            "ingredients": { "type": "array", "required": true },
+            "ingredients": { "type": "string", "required": true },
             "calories": { "type": "number", "required": true, "min": 0 ,"max":5000 },
             "protein": { "type": "number", "required": true, "min": 0 ,"max":500 },
             "carbs": { "type": "number", "required": true, "min": 0 ,"max":500 },
             "fats": { "type": "number", "required": true, "min": 0 ,"max":500 },
-            "warnings": {"type":"array", "required": true}
+            "warnings": {"type":"string", "required": true}
         },
         "delete_food":{
             "food_log_id": { "type": "string", "required": true }

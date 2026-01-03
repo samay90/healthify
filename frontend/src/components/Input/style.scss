@@ -4,6 +4,10 @@
     gap: 10px;
     .input{
         position: relative;
+        border: 1px solid rgb(var(--border-light));
+        border-radius: 0.75rem;
+        background: rgb(var(--background-light));
+        // overflow: hidden;
         .visibility_icon{
             position: absolute;
             top: 50%;
@@ -33,9 +37,10 @@
     input{
         padding:0.825rem 0.75rem;
         font-size: 1rem;
-        border-radius: 0.75rem;
         width: 100%;
-        border: 1px solid rgb(var(--border-light));
+        border: none;
+        background: transparent;
+        border-radius: 0.75rem;
         color: rgb(var(--text-dark));
         outline: none;
         position: sticky;
@@ -52,10 +57,10 @@
         content: '';
         position: absolute;
         display: none;
-        top: -4px;
-        left: -4px;
-        height: calc( 100% + 4px );
-        width: calc( 100% + 4px );
+        top: -5px;
+        left: -5px;
+        height: calc( 100% + 6px );
+        width: calc( 100% + 6px );
         // z-index: 0;
         border-radius: 1rem;
         border: 2px solid rgb(var(--primary-color));

@@ -7,10 +7,15 @@ import Insights from "./Insights";
 import FoodWarnings from "./FoodWarnings";
 import FoodLogs from "./FoodLogs";
 import ButtonPrimary from "../../components/ButtonPrimary";
-import { Plus } from "lucide-react";
+import { Plus, ScanHeart } from "lucide-react";
+import { modalContext } from "../../store/modal";
+import AddFoodModalContent from "../../components/AddFoodModalContent";
+import ScanFoodModalContent from "../../components/ScanFoodModalContent";
 
 const Home = () => {
     const {data:user} = useContext(userContext);
+    const {openModal} = useContext(modalContext);
+    
     const current_time = new Date().getHours();
     const greeting = greetings.find((g) => g.time_max > current_time);
 
@@ -21,7 +26,7 @@ const Home = () => {
             <p>{moment().format("dddd,  MMMM DD")}</p>
             </div>
             <div>
-                <ButtonPrimary className={"button"} text={<><Plus color="white"/> Add Food</>}/>
+                <ButtonPrimary onClick={()=>openModal(<ScanFoodModalContent/>)} className={"button"} text={<><ScanHeart color="white"/>&nbsp;&nbsp;Scan Food</>}/>
             </div>
         </div>
         <Insights/>

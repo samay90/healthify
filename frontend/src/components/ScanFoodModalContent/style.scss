@@ -1,0 +1,53 @@
+.food_image_upload{
+    height: 10rem;
+    position: relative;
+    cursor: pointer;
+    input{
+        height: 100%;
+        opacity: 0;
+        width: 100%;
+    }
+    .overlay{
+        position: absolute;
+        height: 100%;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: -1;
+        background: rgb(var(--background-light));
+        border: 2px dashed rgb(var(--border-light));
+        border-radius: 1rem;
+        gap: 10px;
+        transition: .2s ease;
+        span{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: rgb(var(--text-primary));
+            font-size: 0.825rem;
+            gap: 5px;
+            .lucide{
+                stroke: rgb(var(--text-primary));
+            }
+        }
+    }
+    &:hover .overlay{
+        border-color: rgb(var(--primary-color));
+        background: rgba(var(--primary-color),0.05);
+    }
+    .image_overlay{
+        position: absolute;
+        top: 0;
+        height: 10rem;
+        z-index: -1;
+        width: 100%;
+        img{
+            width: 100%;
+            height: 10rem;
+            object-fit: cover;
+            border-radius: 1rem;
+        }
+    }
+}

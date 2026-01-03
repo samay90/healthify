@@ -35,7 +35,7 @@ const FoodModalContent = ({food_id,closeModal}) =>{
                 <h2>
                     {food.data.food_name}
                 </h2>
-                <img src={food.data.image??NoImage} alt=""></img>
+                <img src={food.data.pic??NoImage} alt=""></img>
             </div>
             <div className="nutrients">
                 <div className="stat" style={{"--color":"var(--accent-color)"}}>
@@ -75,15 +75,18 @@ const FoodModalContent = ({food_id,closeModal}) =>{
                     </div>
                 </div>
             </div>
-            <div className="ingredients">
-                <h3>Ingredients:</h3>
-                <p>
-                {
-                    food.data.ingredients.join(", ")
-                }
-                </p>
-            </div>
-            <div className="warnings">
+            {
+                food.data.ingredients.length>0?<div className="ingredients">
+                    <h3>Ingredients:</h3>
+                    <div className="items">
+                    {
+                        food.data.ingredients.map((ingredient,i) => <p key={i}>{ingredient}</p>)
+                    }
+                    </div>
+                </div>:""
+            }
+            {
+                food.data.warnings.length>0?<div className="warnings">
                 <h3>Warnings & Info:</h3>
                 <div className="items">
                 {
@@ -93,7 +96,8 @@ const FoodModalContent = ({food_id,closeModal}) =>{
                     </p>)
                 }
                 </div>
-            </div>
+            </div>:""   
+            }
             <ButtonSecondary disabled={isPending} onClick={() => deleteFood({food_log_id:food_id})} className="delete_button" color={"var(--accent-color)"} text={<><Trash2 size={18}/>&nbsp;Remove this food</>}/>
         </>}
     </div>

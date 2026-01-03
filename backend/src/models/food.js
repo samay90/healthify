@@ -62,3 +62,15 @@ export const deleteFoodLog = (food_log_id, user_id) => {
         });
     });
 }
+
+export const addFoodImage = (food_log_id, food_url) => {
+    return new Promise((resolve, reject) => {
+        const q = `UPDATE food_logs SET pic = ? WHERE food_log_id = ?`;
+        db.query(q, [food_url, food_log_id], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(result);
+        });
+    });
+}
