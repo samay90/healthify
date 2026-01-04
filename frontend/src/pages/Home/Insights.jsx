@@ -12,7 +12,7 @@ import LinearProgressBar from "../../components/LinearProgressBar";
 import Spinner from "../../components/Spinner";
 import moment from "moment";
 
-const Insights = () =>{
+const Insights = ({total_food_items}) =>{
     const {data:user} = useContext(userContext);
     
     const {isLoading,data:insights} = useQuery({
@@ -75,13 +75,13 @@ const Insights = () =>{
                 </div></>:<Spinner/>}
             </Card>
             <Card className="card_insight">
-                <div className="title">
+                {!isLoading?<><div className="title">
                     <span><TrendingUp size={16} color="rgb(var(--primary-color))"/> Daily Progress</span>
                 </div>
                 <div className="info food">
-                    <h2>1</h2>
+                    <h2>{total_food_items??0}</h2>
                     <p>meals logged today</p>
-                </div>
+                </div></>:<Spinner/>}
             </Card>
         </div>
     )

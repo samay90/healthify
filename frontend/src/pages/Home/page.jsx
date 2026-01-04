@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {greetings} from "../../static/constants"
 import { userContext } from "../../store/User";
 import moment from "moment";
@@ -15,7 +15,7 @@ import ScanFoodModalContent from "../../components/ScanFoodModalContent";
 const Home = () => {
     const {data:user} = useContext(userContext);
     const {openModal} = useContext(modalContext);
-    
+    const [total_food_items,setTotal_food_items] = useState(0);
     const current_time = new Date().getHours();
     const greeting = greetings.find((g) => g.time_max > current_time);
 
@@ -29,9 +29,9 @@ const Home = () => {
                 <ButtonPrimary onClick={()=>openModal(<ScanFoodModalContent/>)} className={"button"} text={<><ScanHeart color="white"/>&nbsp;&nbsp;Scan Food</>}/>
             </div>
         </div>
-        <Insights/>
+        <Insights total_food_items={total_food_items}/>
         <FoodWarnings/>
-        <FoodLogs date={moment().format("MM-DD-YYYY")}/>
+        <FoodLogs setTotal_food_items={setTotal_food_items} date={moment().format("MM-DD-YYYY")}/>
     </div>
 }
 

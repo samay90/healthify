@@ -2,7 +2,7 @@ import db from '../utils/db/db.js';
 
 export const getNutritionInfoByDate = async (user_id, start_date, end_date) => {
     return new Promise((resolve, reject) => {
-        const q = 'SELECT total_calories, total_protein, total_carbs, total_fats FROM daily_intake WHERE user_id = ? AND (intake_date BETWEEN ? AND ?)';
+        const q = 'SELECT total_calories, total_protein, total_carbs, total_fats,intake_date FROM daily_intake WHERE user_id = ? AND (intake_date BETWEEN ? AND ?)';
         db.query(q, [user_id, start_date, end_date], (err, rows) => {
             if (err) {
                 return reject(err);

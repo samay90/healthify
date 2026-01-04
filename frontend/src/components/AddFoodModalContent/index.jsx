@@ -62,6 +62,7 @@ const AddFoodModalContent = ({image,initData}) =>{
             message.success(data.data.message);
             queryClient.invalidateQueries({ queryKey: ["insights"] });
             queryClient.invalidateQueries({ queryKey: ["foodLogs"] });
+            queryClient.invalidateQueries({ queryKey: ["foodWarnings"] });
             closeModal();
         },
         onError: (error) => {

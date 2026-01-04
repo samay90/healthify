@@ -23,6 +23,7 @@ const FoodModalContent = ({food_id,closeModal}) =>{
             message.success(data.data.message);
             queryClient.invalidateQueries({ queryKey: ["insights"] });
             queryClient.invalidateQueries({ queryKey: ["foodLogs"] });
+            queryClient.invalidateQueries({ queryKey: ["foodWarnings"] });
             closeModal();
         }
     })

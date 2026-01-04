@@ -25,6 +25,28 @@
             margin-top: 5px;
         }
     }
+    .warnings{
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        .warning{
+            width: fit-content;
+            background-color: rgba(var(--color),0.1);
+            border: 1px solid rgba(var(--color),0.5);
+            border-radius: 0.75rem;
+            display: flex;
+            gap: 10px;
+            padding: 8px 10px;
+            align-items: center;
+            .lucide{
+                stroke: rgb(var(--color));
+            }
+            p{
+                color: rgb(var(--color));
+            }
+        }
+    }
     .insights{
         margin-top: 20px;
         display: grid;

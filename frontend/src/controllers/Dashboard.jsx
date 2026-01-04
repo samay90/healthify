@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react"
 import { userContext } from "../store/User"
 import SideBar from "../components/SideBar"
 import "../styles/dashboard.scss"
+import FoodLog from "../pages/FoodLog/page"
 
 const Dashboard = () =>{
     const user = useContext(userContext);
@@ -16,6 +17,7 @@ const Dashboard = () =>{
         <div className="dashboard">
             <Routes>
                 <Route path="/" element={<Home/>}></Route>
+                <Route path="/food-log" element={<FoodLog/>}></Route>
             </Routes>
         </div>
     </div>
