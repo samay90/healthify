@@ -27,7 +27,10 @@ const CalendarPage = () => {
         <Card className="week_chart_card">
         <WeekChart/>
         </Card>
+        <br/>
+        <Card className="calendar_card">
         <Calendar date={crr_date}/>
+        </Card>
     </div>
 }
 
