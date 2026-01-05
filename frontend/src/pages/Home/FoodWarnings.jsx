@@ -15,7 +15,7 @@ const FoodWarnings = () =>{
             <div className="warnings">
                 {
                     foodWarnings?.data?.map(({warning_text,warning_type},key)=>{
-                        return <div style={{"--color":warning_type==="INFO"?"var(--text-primary)":"var(--accent-color)"}} className={`warning ${warning_type}`} key={key}>
+                        return <div style={{"--color":warning_type==="INFO"?"var(--info)":"var(--warning)"}} className={`warning ${warning_type}`} key={key}>
                            {
                             warning_type==="INFO"?<Info size={18}/>:<TriangleAlert size={18}/>
                            }

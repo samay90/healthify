@@ -1,0 +1,27 @@
+.pagination{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    .content{
+        margin: 0 1rem;
+    }
+    button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        aspect-ratio: 1 / 1;
+        border-radius: 1rem;
+        .lucide{
+            stroke: rgb(var(--text-dark));
+        }
+        &:hover{
+            background: rgba(0,0,0,0.05);
+        }
+    }
+}

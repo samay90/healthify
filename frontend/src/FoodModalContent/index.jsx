@@ -59,7 +59,7 @@ const FoodModalContent = ({food_id,closeModal}) =>{
                 </div>
                 <div className="stat" style={{"--color":"var(--warning)"}}>
                     <div className="icon">
-                        <Droplets size={18}/>
+                        <Wheat size={18}/>
                     </div>
                     <div className="info">
                         <h3>{food.data.carbs} g</h3>
@@ -68,7 +68,7 @@ const FoodModalContent = ({food_id,closeModal}) =>{
                 </div>
                 <div className="stat" style={{"--color":"var(--info)"}}>
                     <div className="icon">
-                        <Wheat size={18}/>
+                        <Droplets size={18}/>
                     </div>
                     <div className="info">
                         <h3>{food.data.fats} g</h3>

@@ -5,6 +5,7 @@ import { Calendar, Home, LogOut, User, UtensilsCrossed } from "lucide-react"
 import Avatar from "../Avatar"
 import { useContext } from "react"
 import { userContext } from "../../store/User"
+import moment from "moment"
 const SideBar = () =>{
     const {pathname} = useLocation();
     const {data} = useContext(userContext);
@@ -17,12 +18,14 @@ const SideBar = () =>{
     },
     {
         name:"Food Log",
-        path:"/dashboard/food-log",
+        path:"/dashboard/food-log/"+moment().format("MM-DD-YYYY"),
+        match:"/dashboard/food-log",
         icon:<UtensilsCrossed/>
     },
     {
         name:"Calendar",
-        path:"/dashboard/calendar",
+        path:"/dashboard/calendar/"+moment().format("MM-01-YYYY"),
+        match:"/dashboard/calendar",
         icon:<Calendar/>
     },
     {
@@ -30,7 +33,13 @@ const SideBar = () =>{
         path:"/dashboard/profile",
         icon:<User/>
     }
-]
+]   
+    const checkMatch = (match,path) => {
+        if (match){
+            return pathname.startsWith(match);
+        }
+        return pathname===path;
+    }
     return (
         <div className="side_bar">
             <div className="mobile_header">
@@ -38,7 +47,7 @@ const SideBar = () =>{
             </div>
             <div className="mobile_nav">
                 {nav_tabs.map((tab,key)=>{
-                    return <Link key={key} className={`tab ${pathname==tab.path?" active":""}`} to={tab.path}>
+                    return <Link key={key} className={`tab ${checkMatch(tab.match,tab.path)?" active":""}`} to={tab.path}>
                         <span className="icon">{tab.icon}</span>
                         <span className="name">{tab.name}</span>
                     </Link>
@@ -50,7 +59,7 @@ const SideBar = () =>{
                 </div>
                 <div className="tabs">
                     {nav_tabs.map((tab,key)=>{
-                        return <Link key={key} className={`tab ${pathname==tab.path?" active":""}`} to={tab.path}>
+                        return <Link key={key} className={`tab ${checkMatch(tab.match,tab.path)?" active":""}`} to={tab.path}>
                             <span className="icon">{tab.icon}</span>
                             <span className="name">{tab.name}</span>
                         </Link>

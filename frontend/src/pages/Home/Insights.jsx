@@ -17,7 +17,7 @@ const Insights = ({total_food_items}) =>{
     
     const {isLoading,data:insights} = useQuery({
         queryFn: () => api.get(`/info/nutrition/${moment().format("MM-DD-YYYY")}/${moment().format("MM-DD-YYYY")}`).then((res) => res.data),
-        queryKey: ["insights"]
+        queryKey: ["insights",moment().format("MM-DD-YYYY")]
     })
     
     const {total_calories, total_carbs, total_fats, total_protein} = (insights?.data[0])??{};

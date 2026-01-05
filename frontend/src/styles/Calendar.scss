@@ -1,0 +1,99 @@
+.calendar_page{
+    .week_chart_card{
+        height: max-content;
+        margin-top: 20px;
+    }
+    .week_chart{
+        padding: 0.5rem;
+        height: max-content;
+        .options{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            margin-top: 1rem;
+            .option{
+                width: 100%;
+                background: rgb(var(--color),0.05);
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                transition: .3s ease;
+                justify-content: center;
+                border-radius: 10px;
+                font-size: 0.825rem;
+                border: 1px solid rgb(var(--color));
+                color: rgb(var(--color));
+                cursor: pointer;
+                .lucide{
+                    stroke: rgb(var(--color));
+                    transition: .3s ease;
+                    display: none;
+                    transform: scale(0.8);
+                }
+                &.active{
+                    background: rgb(var(--color));
+                    color: white;
+                    .lucide{
+                        stroke: white;
+                    }
+                }
+            }
+        }
+        .title{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: rgb(var(--text-dark));
+            font-size: 1rem;
+            font-weight: 500;
+            .lucide{
+                stroke: rgb(var(--primary-color));
+            }
+        }
+        .graph{
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            grid-template-rows: 1fr;
+            grid-gap: 10px;
+            margin-top: 1rem;
+            .bar{
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                .label{
+                    color: rgb(var(--text-primary));
+                    font-size: 0.925rem;
+                    margin-bottom: 10px;
+                }
+                &:last-child{
+                    .label{
+                        color: rgb(var(--color));
+                    }
+                }
+                .bar_cover{
+                    height: 5rem;
+                    display: flex;
+                    align-items: end;
+                    width: 100%;
+                    background: rgb(var(--background-dark),0.5);
+                    border-radius: 10px;
+                    overflow: hidden;
+                }
+                .value{
+                    color: rgb(var(--text-primary));
+                    font-size: 0.825rem;
+                    margin-top: 10px;
+                    font-weight: 400;
+                    height: 2rem;
+                    text-align: center;
+                }
+                .bar_item{
+                    width: 100%;
+                    transition: .3s ease;
+                    background: rgb(var(--color));
+                }
+            }
+        }
+    }
+}
