@@ -119,6 +119,18 @@
             }
         }
         .tab{
+            height: 3rem;
+            &.disabled{
+                pointer-events: none;
+                background: rgba(255, 0, 0, 0.042);
+                .spinner{
+                    transform: scale(0.6);
+                    span{
+                        border-color: red;
+                        border-top-color: transparent;
+                    }
+                }
+            }
             display: flex;
                 align-items: center;
                 gap: 10px;

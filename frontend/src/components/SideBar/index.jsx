@@ -6,6 +6,10 @@ import Avatar from "../Avatar"
 import { useContext } from "react"
 import { userContext } from "../../store/User"
 import moment from "moment"
+import { useMutation } from "@tanstack/react-query"
+import api from "../../api/client"
+import Spinner from "../Spinner"
+import { message } from "../Toast"
 const SideBar = () =>{
     const {pathname} = useLocation();
     const {data} = useContext(userContext);
@@ -40,6 +44,15 @@ const SideBar = () =>{
         }
         return pathname===path;
     }
+    const {mutate:signOut,isPending} = useMutation({
+        mutationFn: () => api.post("/auth/signout").then((res) => res.data),
+        onSuccess: (data) => {            
+            window.location.reload();
+        },
+        onError: (error) => {
+            message.error(error.response.data.message);
+        }
+    })
     return (
         <div className="side_bar">
             <div className="mobile_header">
@@ -74,9 +87,13 @@ const SideBar = () =>{
                         <p>{data.email}</p>
                     </div>
                 </div>
-                <div className="tab">
-                    <span className="icon"><LogOut/></span>
-                    <span className="name">Sign Out</span>
+                <div onClick={()=>signOut()} className={`tab ${isPending?" disabled":""}`}>
+                    {
+                        isPending?<Spinner className={"spinner"}/>:<>
+                        <span className="icon"><LogOut/></span>
+                        <span className="name">Sign Out</span>
+                        </>
+                    }
                 </div>
             </div>
         </div>

@@ -10,7 +10,6 @@ services:
     depends_on:
       - db
       - redis
-      - photo_detect
   db:
     build:
       context: ./backend/db_design

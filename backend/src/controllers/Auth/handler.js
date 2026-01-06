@@ -13,4 +13,6 @@ router.post("/forgot-password",validate(schema["auth"]["forgot-password"]),requi
 
 router.post("/reset-password",validate(schema["auth"]["reset-password"]),require("./reset-password.js"));
 
+router.post("/signout",require("./signout.js"));
+
 module.exports = router;
