@@ -2,6 +2,12 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    &.disabled{
+        input{
+            color: rgb(var(--text-primary));
+            cursor: not-allowed;
+        }
+    }
     .input{
         position: relative;
         border: 1px solid rgb(var(--border-light));
@@ -51,6 +57,9 @@
     label{
         color: rgb(var(--text-dark));
         font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 5px;
         font-size: 0.925rem;
     }
     .input::before{

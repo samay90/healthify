@@ -1,9 +1,12 @@
 import "./style.scss"
 
-const Avatar = ({url,chr,size}) =>{
+const Avatar = ({url,children,chr,size}) =>{
     return (
         <div className="avatar" style={{width:size+"px",height:size+"px"}}>
-            {url?<img src={url} alt="" />:<span>{chr.replace(" ","").charAt(0).toUpperCase()}</span>}
+            <>
+                {children}
+            </>
+            {url?<img src={url} alt="" />:<span style={{fontSize:1/40*size+"rem"}}>{chr.replace(" ","").charAt(0).toUpperCase()}</span>}
         </div>
     )
 }

@@ -6,7 +6,7 @@ const schema = require('../../../body_schema/schema.json');
 const {updateInfo,updateProfilePic} = require('./update');
 const parser = require("../../utils/middleware/parser.js");
 
-router.post("/update",authorize,validate(schema["user"]["update"]),updateInfo,updateProfilePic);
+router.post("/update",authorize,parser,validate(schema["user"]["update"]),updateInfo,updateProfilePic);
 
 router.post("/detect-food",authorize,require("./detect-food"));
 

@@ -2,5 +2,9 @@
     "calories":1,
     "protein":1,
     "carbs":1,
-    "fats":1
+    "fats":1,
+    "daily_calorie_limit":1,
+    "daily_protein_limit":1,
+    "daily_carbs_limit":1,
+    "daily_fats_limit":1
 }

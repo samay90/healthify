@@ -1,0 +1,21 @@
+.delete_acc_modal_content{
+    padding: 0.5rem 1rem;
+    width: 100%;
+    h1{
+        color: rgb(var(--text-dark));
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 10px 0px;
+    }
+    p{
+        color: rgb(var(--text-primary));
+        font-size: 0.925rem;
+    }
+    .buttons{
+        padding: 0.5rem 0;
+        display: grid;
+        grid-gap: 1rem;
+        width: 100%;
+        grid-template-columns: 1fr 1fr;
+    }
+}

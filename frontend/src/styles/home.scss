@@ -2,6 +2,10 @@
     .greetings{
         display: flex;
         justify-content: space-between;
+        .buttons{
+            display: flex;
+            gap: 10px;
+        }
         .button{
             padding: 10px 15px;
         }

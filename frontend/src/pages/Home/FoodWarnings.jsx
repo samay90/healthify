@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query"
 import api from "../../api/client";
 import { Info, TriangleAlert } from "lucide-react";
+import Card from "../../components/Card";
+import Empty from "../../components/Empty";
 
 const FoodWarnings = () =>{
     const {data:foodWarnings,isLoading} = useQuery({
@@ -22,6 +24,11 @@ const FoodWarnings = () =>{
                             <p className="text">{warning_text}</p>
                         </div>
                     })
+                }
+                {
+                    (foodWarnings?.data.length===0 || isLoading)?<Card className="empty_card">
+                        <Empty isLoading={isLoading} text={"No Insights."}/>
+                    </Card>:null
                 }
             </div>
         </div> 

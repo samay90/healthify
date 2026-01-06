@@ -59,7 +59,7 @@ const Calendar = ({date}) => {
     const dayElements = [];
 
     for (let i = 0; i < firstDayIndex; i++) {
-      dayElements.push(<div key={`empty-${i}`} className="calendar-day empty"></div>);
+      dayElements.push(<div key={`empty-${i}`} className="calendar-day"></div>);
     }
     
     for (let d = 1; d <= daysInMonth; d++) {
@@ -69,12 +69,14 @@ const Calendar = ({date}) => {
       year === today.getFullYear();
       
       const crr_date = moment(date).format(`MM-${d<10?0:""}${d}-YYYY`);
+      const per = percentage(nutritions[crr_date]?.total_calories,total_calories_limit);
+      const text = Math.floor(per*2.55);
       dayElements.push(
-        <div style={{"--color":nutritions[crr_date]?getColor(percentage(nutritions[crr_date].total_calories,total_calories_limit),0.1):"none"}} key={d} className={`calendar-day ${isToday ? 'today' : ''}`}>
+        <div style={{"--text-color":`rgb(${text},${text},${text})`,"--color":`rgba(var(--primary-color),${per/100})`}} key={d} className={`calendar-day ${isToday ? 'today' : ''}`}>
           <p>{d}</p>
           {
             nutritions[crr_date]?<span>
-            <Flame size={14}/> {percentage(nutritions[crr_date].total_calories,total_calories_limit)}%
+            <Flame size={14}/> {per}%
           </span>:""
           }
         </div>

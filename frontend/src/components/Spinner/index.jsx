@@ -1,7 +1,7 @@
 import "./style.scss"
 
-const Spinner = () => {
-    return <div className="spinner">
+const Spinner = ({className}) => {
+    return <div className={"spinner"+" "+className} >
         <span></span>
     </div>
 }

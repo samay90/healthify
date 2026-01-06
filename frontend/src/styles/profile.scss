@@ -1,0 +1,104 @@
+.profile_page{
+    .profile_area{
+        margin-top: 1.5rem;
+        .user_card{
+            padding: 1.5rem;
+            display: flex;
+            gap: 1rem;
+    
+            align-items: center;
+            .icon{
+                input{
+                    height: 100%;
+                    width: 100%;
+                    cursor: pointer;
+                    position: absolute;
+                    opacity: 0;
+                    top:0;
+                    left: 0;
+                    &::-webkit-file-upload-button{
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .buttons{
+                    position: absolute;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    bottom: 0;
+                    z-index: 1000;
+                    span{
+                        width: 30px;
+                        height: 30px;
+                        background: rgb(var(--primary-color));
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-radius: 50%;
+                        cursor: pointer;
+                        &:first-child{
+                            background: rgb(var(--accent-color));
+                        }
+                        .lucide{
+                            stroke: white;
+                        }
+                    }
+                }
+            }
+            .user_info{
+                h2{
+                    color: rgb(var(--text-dark));
+                    font-size: 1.4rem;
+                    margin-bottom: 3px;
+                }
+                p{
+                    color: rgb(var(--text-primary));
+                }
+            }
+        }
+    }
+    .sections{
+        margin-top: 1.5rem;
+        padding: 1.5rem;
+        .header{
+            h3{
+                color: rgb(var(--text-dark));
+                font-size: 1.2rem;
+                font-weight: 600;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                .lucide{
+                    stroke: rgb(var(--primary-color));
+                }
+            }
+            margin-bottom: 1rem;
+        }
+        .form{
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+            @media (max-width:600px){
+                grid-template-columns: 1fr;
+            }
+            .lucide{
+                stroke: rgb(var(--text-primary));
+            }
+        }
+        &.delete_account{
+            border: 1px solid rgb(var(--accent-color));
+            .lucide{
+                stroke: rgb(var(--accent-color)) !important;
+            }
+            p{
+                color: rgb(var(--text-primary)) !important;
+                margin-bottom: 15px;
+            }
+            .btn_primary{
+                padding: 0 1rem;  
+                background: rgb(var(--accent-color));
+            }
+        }
+    }
+}

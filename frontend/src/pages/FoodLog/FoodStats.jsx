@@ -4,6 +4,7 @@ import api from "../../api/client";
 import { number } from "../../functions/number";
 import { useEffect } from "react";
 import { queryClient } from "../../main";
+import Spinner from "../../components/Spinner";
 const FoodStats = ({date}) => {
     const {data:stats,isLoading} = useQuery({
         queryFn: () => api.get(`/info/nutrition/${date}/${date}`).then((res) => res.data),
@@ -13,7 +14,11 @@ const FoodStats = ({date}) => {
     return <>
         <div className="food_stats_log">
             <Card>
-                <div className="stats">
+                {
+                    isLoading?<div style={{height:"3rem"}}>
+                        <Spinner/>
+                    </div>:<>
+                    <div className="stats">
                     <div style={{"--color":"var(--text-dark)"}}>
                         <h3>{number(total_calories)} kcal</h3>
                         <p>Calories</p>
@@ -31,6 +36,8 @@ const FoodStats = ({date}) => {
                         <p>Fats</p>
                     </div>
                 </div>
+                    </>
+                }
             </Card>
         </div>
     </>

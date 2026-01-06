@@ -33,7 +33,7 @@
       background-color: var(--color);
       justify-content: center;
       p{
-        color: rgb(var(--text-dark));
+        color: var(--text-color);
       }
       span{
         display: flex;
@@ -42,29 +42,14 @@
         .lucide{
           stroke: rgb(var(--accent-color));
         }
-        color: rgb(var(--text-primary));
-        font-size: 0.725rem;
+        color: var(--text-color);
+        font-size: 0.625rem;
       }
       border-radius: 8px;
       font-size: 0.9rem;
       cursor: pointer;
       transition: background 0.2s;
       border: 1px solid transparent;
-
-      &:hover:not(.empty) {
-        background-color: rgb(var(--background-dark),0.5);
-      }
-
-      &.empty {
-        cursor: default;
-      }
-
-      &.today {
-        border:2px solid rgb(var(--primary-color));
-        p{
-          color: rgb(var(--primary-color))  ;
-        }
-      }
     }
   }
 }

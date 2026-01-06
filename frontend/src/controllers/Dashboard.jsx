@@ -6,6 +6,8 @@ import SideBar from "../components/SideBar"
 import "../styles/dashboard.scss"
 import FoodLog from "../pages/FoodLog/page"
 import CalendarPage from "../pages/Calendar/page"
+import Profile from "../pages/Profile/page"
+import NotFound from "../pages/NotFound/page"
 
 const Dashboard = () =>{
     const user = useContext(userContext);
@@ -20,6 +22,8 @@ const Dashboard = () =>{
                 <Route path="/" element={<Home/>}></Route>
                 <Route path="/food-log/:date" element={<FoodLog/>}></Route>
                 <Route path="/calendar/:date" element={<CalendarPage/>}></Route>
+                <Route path="/profile" element={<Profile/>}></Route>
+                <Route path="*" element={<NotFound/>}></Route>
             </Routes>
         </div>
     </div>
