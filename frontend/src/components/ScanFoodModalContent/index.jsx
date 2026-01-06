@@ -16,12 +16,16 @@ const ScanFoodModalContent = () =>{
         mutationFn: (data) => api.post('/user/detect-food', data,{
             headers: {"Content-Type":"multipart/form-data"}
         }),
+        retry:false,
         onSuccess: (data) => {
+            
             message.success("Found Image!");
             openModal(<AddFoodModalContent image={image} initData={data.data.data}/>)            
         },
         onError: (error) => {
-            message.error(error.response.data.message);
+            console.log(error,error.response.data.message);
+            
+            message.error(error.response.data.data.message);
         }
     })
     useEffect(()=>{

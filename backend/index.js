@@ -20,6 +20,6 @@ const delay = (req,res,next) =>{
 
 app.use("/api",delay, require("./src/routes/route.js"));
 
-app.listen(process.env.PORT,process.env.SERVER_IP, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Server is running on port ${process.env.PORT}`);
 });

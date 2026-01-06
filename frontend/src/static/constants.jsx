@@ -1,6 +1,6 @@
 import { Calendar, Home, User, UtensilsCrossed } from "lucide-react";
 
-export const API = "http://10.196.41.93:5892/api";
+export const API = "http://localhost:5003/api";
 
 export const greetings = [
     {

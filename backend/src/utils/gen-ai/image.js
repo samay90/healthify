@@ -1,54 +1,24 @@
-const model = require("./config");
 const toJSON = require("../generators/json_conv")
-const prompt = `
-Analyze the food image and IMMEDIATELY return ONLY valid JSON.
+require("dotenv").config();
 
-Do NOT explain.
-Do NOT acknowledge.
-Do NOT add text before or after.
-the warnings are the health concerns of the food and its ingredients of some usefull info about the food Ex: "High protein".
-If food cannot be identified, return:
-{ "error": true ,"message":(reason for failure)}
-
-Otherwise return exactly this format:
-
-{
-  "error": false,
-  "food_name": string,
-  "ingredients": string[],
-  "calories": number, (unit in kcal)
-  "protein": number, (unit in grams)
-  "carbs": number, (unit in grams)
-  "fats": number, (unit in grams)
-  "warnings": {warning_text:string,warning_type:string from ("WARNING","INFO")}[]
-}
-`;
 const analyseImage = async (url) => {
   try{  
-      return require("./demo.json");    
-      const apiResponse = await model.chat.completions.create({
-      model: 'google/gemma-3-27b-it:free',
-      messages: [
-        {
-          role: 'user',
-          content: [
-              {
-                type: "text",
-                text: prompt
-              },
-              {
-                type: "image_url",
-                imageUrl: {
-                  url
-                }
-              }
-            ]
-        },
-      ],
-      stream: false,
-      temperature: 1
-    });
-    return toJSON(apiResponse.choices[0].message.content)
+      // return require("./demo.json");    
+      const data = await fetch(process.env.GEN_AI_LINK,{
+          method:"POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            imageUrl:url
+          })
+      })
+      const apiResponse = await data.json();
+      if (apiResponse.error){
+        return apiResponse;
+      }
+      
+    return toJSON(apiResponse.data);
   }catch (error) {
     return {error:true,message:error.message}
   }

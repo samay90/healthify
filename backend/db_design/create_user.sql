@@ -1,0 +1,3 @@
+CREATE USER IF NOT EXISTS 'healthify'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON healthify.* TO 'healthify'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;

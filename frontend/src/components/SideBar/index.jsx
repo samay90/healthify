@@ -33,7 +33,7 @@ const SideBar = () =>{
         icon:<Calendar/>
     },
     {
-        name:"Profilie",
+        name:"Profile",
         path:"/dashboard/profile",
         icon:<User/>
     }

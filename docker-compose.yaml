@@ -1,4 +1,14 @@
 services:
+  frontend:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173"
+    networks:
+      - healthify
+    depends_on:
+      - backend
   backend:
     build: 
       context: ./backend
@@ -10,22 +20,27 @@ services:
     depends_on:
       - db
       - redis
+      - gen-ai
+  gen-ai:
+    build: 
+      context: ./GenAI
+      dockerfile: Dockerfile
+    networks:
+      - healthify
   db:
     build:
       context: ./backend/db_design
       dockerfile: Dockerfile
     networks:
       - healthify
-    ports:
-      - "3309:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=healthify
     volumes:
-      - healthify:/var/lib/msql
+      - healthify:/var/lib/mysql
   redis:
     image: redis/redis-stack:latest
     ports:
-      - "6379:6379"
       - "3001:8001"
     networks:
       - healthify
